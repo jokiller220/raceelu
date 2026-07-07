@@ -6,8 +6,12 @@ echo "<h1>Installation de la base de données</h1>";
 try {
     $port = defined('DB_PORT') ? DB_PORT : '3306';
     $dsn = 'mysql:host=' . DB_HOST . ';port=' . $port . ';dbname=' . DB_NAME . ';charset=utf8mb4';
-    $pdo = new PDO($dsn, DB_USER, DB_PASS);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $options = array(
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::MYSQL_ATTR_SSL_CA => __DIR__ . '/config/cacert.pem',
+        PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true
+    );
+    $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
 
     $sqlFile = __DIR__ . '/database/database.sql';
     if (!file_exists($sqlFile)) {
