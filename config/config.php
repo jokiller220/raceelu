@@ -27,7 +27,11 @@ if ($db_url) {
 }
 
 // Base URL de l'application dynamique (gère le port automatiquement)
-$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+$protocol = 'http';
+if ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') || 
+    (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')) {
+    $protocol = 'https';
+}
 $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
 $scriptPath = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
 if ($scriptPath === '/' || $scriptPath === '\\') {
