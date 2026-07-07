@@ -19,11 +19,11 @@ if ($db_url) {
     define('DB_NAME', ltrim($parsed['path'] ?? '/race_elu_db', '/'));
     define('DB_PORT', $parsed['port'] ?? '3306');
 } else {
-    define('DB_HOST', get_env_var(['MYSQLHOST', 'MYSQL_HOST'], 'localhost'));
-    define('DB_USER', get_env_var(['MYSQLUSER', 'MYSQL_USER'], 'root'));
-    define('DB_PASS', get_env_var(['MYSQLPASSWORD', 'MYSQL_PASSWORD'], 'root')); 
-    define('DB_NAME', get_env_var(['MYSQLDATABASE', 'MYSQL_DATABASE'], 'race_elu_db'));
-    define('DB_PORT', get_env_var(['MYSQLPORT', 'MYSQL_PORT'], '3306'));
+    define('DB_HOST', get_env_var(['MYSQLHOST', 'MYSQL_HOST'], 'gateway01.eu-central-1.prod.aws.tidbcloud.com'));
+    define('DB_USER', get_env_var(['MYSQLUSER', 'MYSQL_USER'], '3cnjGn66JTPAvQH.root'));
+    define('DB_PASS', get_env_var(['MYSQLPASSWORD', 'MYSQL_PASSWORD'], 'rOHhBuwTmieKFMj0')); 
+    define('DB_NAME', get_env_var(['MYSQLDATABASE', 'MYSQL_DATABASE'], 'test'));
+    define('DB_PORT', get_env_var(['MYSQLPORT', 'MYSQL_PORT'], '4000'));
 }
 
 // Base URL de l'application dynamique (gère le port automatiquement)
