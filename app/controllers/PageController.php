@@ -41,6 +41,27 @@ class PageController extends Controller {
         $this->view('pages/contact', $data);
     }
 
+    public function promotions() {
+        $db = new Database();
+        $db->query('SELECT p.*, c.nom as categorie_nom, pr.pourcentage_remise FROM products p JOIN promotions pr ON p.id = pr.product_id LEFT JOIN categories c ON p.category_id = c.id WHERE p.status = "actif" AND (pr.date_debut IS NULL OR pr.date_debut <= CURDATE()) AND (pr.date_fin IS NULL OR pr.date_fin >= CURDATE())');
+        $promotions = $db->resultSet();
+        $data = [
+            'title' => 'Promotions - Race Élu',
+            'promotions' => $promotions
+        ];
+        $this->view('pages/promotions', $data);
+    }
+
+    public function returns() {
+        $data = ['title' => 'Politique de retour - Race Élu'];
+        $this->view('pages/returns', $data);
+    }
+
+    public function faq() {
+        $data = ['title' => 'FAQ - Race Élu'];
+        $this->view('pages/faq', $data);
+    }
+
     private function h_getSetting($key) {
         return $this->getSetting($key);
     }

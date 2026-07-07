@@ -152,7 +152,7 @@
                             <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="<?= BASE_URL ?>/shop">Boutique</a></li>
                             <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="<?= BASE_URL ?>/page/about">À propos</a></li>
                             <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="<?= BASE_URL ?>/page/services">Services</a></li>
-                            <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="#">Promotions</a></li>
+                            <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="<?= BASE_URL ?>/page/promotions">Promotions</a></li>
                             <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="<?= BASE_URL ?>/page/contact">Contact</a></li>
                             <li class="nav-item ms-lg-2"><a class="btn btn-dark-green rounded-pill px-4 py-2 mt-2 mt-lg-1 fw-bold shadow-sm" href="<?= BASE_URL ?>/order/track"><i class="fas fa-truck me-2 text-yellow"></i> Suivre mon colis</a></li>
                         </ul>

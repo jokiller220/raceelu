@@ -27,8 +27,8 @@
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="<?= BASE_URL ?>/auth/login" class="text-white-50 text-decoration-none">Mon Compte</a></li>
                         <li class="mb-2"><a href="<?= BASE_URL ?>/order/track" class="text-white-50 text-decoration-none">Suivre ma commande</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Politique de retour</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">FAQ</a></li>
+                        <li class="mb-2"><a href="<?= BASE_URL ?>/page/returns" class="text-white-50 text-decoration-none">Politique de retour</a></li>
+                        <li class="mb-2"><a href="<?= BASE_URL ?>/page/faq" class="text-white-50 text-decoration-none">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
