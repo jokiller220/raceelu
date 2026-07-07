@@ -43,13 +43,12 @@
 
                 <!-- Search -->
                 <div class="search-bar flex-grow-1 mx-4 d-none d-md-block" style="max-width: 500px;">
-                    <form action="<?= BASE_URL ?>/shop/search" method="GET" class="input-group">
+                    <form action="<?= BASE_URL ?>/shop" method="GET" class="input-group">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Toutes les catégories</button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Riz</a></li>
-                            <li><a class="dropdown-item" href="#">Huile</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>/shop">Toutes</a></li>
                         </ul>
-                        <input type="text" name="q" class="form-control" placeholder="Rechercher un produit...">
+                        <input type="text" name="search" class="form-control" placeholder="Rechercher un produit..." value="<?= isset($_GET['search']) ? h($_GET['search']) : '' ?>">
                         <button class="btn btn-primary bg-dark-green border-0" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
@@ -141,11 +140,16 @@
                                     <i class="fas fa-bars me-2"></i> Toutes les catégories
                                 </a>
                                 <ul class="dropdown-menu rounded-0 shadow border-0 mt-0">
-                                    <li><a class="dropdown-item" href="#">Riz</a></li>
-                                    <li><a class="dropdown-item" href="#">Huile</a></li>
-                                    <li><a class="dropdown-item" href="#">Sucre</a></li>
-                                    <li><a class="dropdown-item" href="#">Conserves</a></li>
-                                    <li><a class="dropdown-item" href="#">Boissons</a></li>
+                                    <?php
+                                        $headerDb = new Database();
+                                        $headerDb->query('SELECT * FROM categories ORDER BY nom ASC LIMIT 8');
+                                        $headerCategories = $headerDb->resultSet();
+                                        foreach($headerCategories as $hcat):
+                                    ?>
+                                    <li><a class="dropdown-item" href="<?= BASE_URL ?>/shop/category/<?= $hcat->slug ?>"><?= h($hcat->nom) ?></a></li>
+                                    <?php endforeach; ?>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item fw-bold text-dark-green" href="<?= BASE_URL ?>/shop">Toutes les catégories</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark active" href="<?= BASE_URL ?>">Accueil</a></li>

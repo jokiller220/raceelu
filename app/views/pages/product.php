@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="col">
-                            <button type="button" class="btn btn-dark-green w-100 py-2 fw-bold" <?= $data['product']->stock <= 0 ? 'disabled' : '' ?> onclick="addToCart(<?= $data['product']->id ?>)">
+                            <button type="button" class="btn btn-dark-green w-100 py-2 fw-bold add-to-cart-btn" data-id="<?= $data['product']->id ?>" <?= $data['product']->stock <= 0 ? 'disabled' : '' ?>>
                                 <i class="fas fa-shopping-basket me-2"></i> Ajouter au panier
                             </button>
                         </div>
