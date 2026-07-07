@@ -239,8 +239,15 @@ body {
 
 /* Admin Sidebar */
 .admin-sidebar {
-    min-height: 100vh;
     background-color: var(--color-dark-green);
+}
+@media (min-width: 992px) {
+    .admin-sidebar {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+    }
 }
 .admin-sidebar .nav-link {
     color: rgba(255,255,255,0.8);

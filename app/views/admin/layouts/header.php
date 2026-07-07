@@ -24,7 +24,7 @@
     <?php require_once 'sidebar.php'; ?>
 
     <!-- Content -->
-    <div class="flex-grow-1" style="max-height: 100vh; overflow-y: auto;">
+    <div class="flex-grow-1 min-vh-100 d-flex flex-column">
         <header class="bg-white p-3 shadow-sm d-flex justify-content-between align-items-center position-sticky top-0" style="z-index: 1000;">
             <div class="d-flex align-items-center">
                 <button class="btn btn-light d-lg-none me-2 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#adminSidebarMobile" aria-controls="adminSidebarMobile">
