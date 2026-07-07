@@ -26,7 +26,12 @@
     <!-- Content -->
     <div class="flex-grow-1" style="max-height: 100vh; overflow-y: auto;">
         <header class="bg-white p-3 shadow-sm d-flex justify-content-between align-items-center position-sticky top-0" style="z-index: 1000;">
-            <h4 class="mb-0 fw-bold"><?= $data['page_title'] ?? 'Tableau de bord' ?></h4>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-light d-lg-none me-2 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#adminSidebarMobile" aria-controls="adminSidebarMobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h4 class="mb-0 fw-bold fs-5 fs-lg-4"><?= $data['page_title'] ?? 'Tableau de bord' ?></h4>
+            </div>
             <div class="d-flex align-items-center">
                 <span class="me-3 fw-medium">Admin</span>
                 <img src="https://ui-avatars.com/api/?name=Admin&background=0B5D3B&color=fff" class="rounded-circle" width="40" height="40" alt="Admin">

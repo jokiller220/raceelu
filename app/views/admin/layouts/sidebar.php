@@ -1,16 +1,22 @@
 <!-- Sidebar -->
-<div class="admin-sidebar text-white" style="width: 250px;">
-    <div class="p-4 d-flex align-items-center">
-        <img src="<?= BASE_URL ?>/public/assets/images/logo.png" alt="Logo" height="40" class="me-2 rounded bg-white p-1">
-        <div class="logo-text-group">
-            <div class="brand-main" style="gap: 4px;">
-                <span class="brand-race text-white" style="font-size: 1.4rem;">Race</span>
-                <span class="brand-elu" style="font-size: 1.4rem;">Élu</span>
-            </div>
-            <span class="brand-tagline text-white-50" style="font-size: 0.55rem; letter-spacing: 1px;">PANNEAU ADMIN</span>
-        </div>
+<div class="admin-sidebar offcanvas-lg offcanvas-start text-white flex-shrink-0" tabindex="-1" id="adminSidebarMobile" aria-labelledby="adminSidebarMobileLabel" style="width: 250px;">
+    <div class="offcanvas-header d-lg-none border-bottom border-secondary bg-dark-green">
+        <h5 class="offcanvas-title text-white fw-bold" id="adminSidebarMobileLabel">Menu Admin</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#adminSidebarMobile" aria-label="Fermer"></button>
     </div>
-    <ul class="nav flex-column mt-3">
+    
+    <div class="offcanvas-body flex-column p-0">
+        <div class="p-4 d-flex align-items-center d-none d-lg-flex">
+            <img src="<?= BASE_URL ?>/public/assets/images/logo.png" alt="Logo" height="40" class="me-2 rounded bg-white p-1">
+            <div class="logo-text-group">
+                <div class="brand-main" style="gap: 4px;">
+                    <span class="brand-race text-white" style="font-size: 1.4rem;">Race</span>
+                    <span class="brand-elu" style="font-size: 1.4rem;">Élu</span>
+                </div>
+                <span class="brand-tagline text-white-50" style="font-size: 0.55rem; letter-spacing: 1px;">PANNEAU ADMIN</span>
+            </div>
+        </div>
+        <ul class="nav flex-column mt-lg-3 w-100">
         <li class="nav-item">
             <a class="nav-link <?= ($data['active_menu'] ?? '') == 'dashboard' ? 'active' : '' ?>" href="<?= BASE_URL ?>/admin"><i class="fas fa-tachometer-alt me-3 w-20px"></i> Tableau de bord</a>
         </li>
@@ -43,5 +49,6 @@
         <li class="nav-item mt-3 border-top border-secondary">
             <a class="nav-link" href="<?= BASE_URL ?>"><i class="fas fa-sign-out-alt me-3 w-20px"></i> Quitter</a>
         </li>
-    </ul>
+        </ul>
+    </div>
 </div>
