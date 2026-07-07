@@ -24,7 +24,12 @@ class Database {
             $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
         } catch (PDOException $e) {
             $this->error = $e->getMessage();
-            die('Erreur de connexion à la base de données : ' . $this->error);
+            $msg = 'Erreur de connexion à la base de données : ' . $this->error;
+            $msg .= ' | Hôte tenté : ' . $this->host . ':' . $port;
+            if ($this->host === 'localhost') {
+                $msg .= ' (Il semble que les variables d\'environnement Railway MYSQL_URL ou MYSQLHOST ne soient pas injectées dans ce projet)';
+            }
+            die($msg);
         }
     }
 
