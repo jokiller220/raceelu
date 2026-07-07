@@ -29,7 +29,13 @@ if ($db_url) {
 // Base URL de l'application dynamique (gère le port automatiquement)
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
 $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
-define('BASE_URL', $protocol . '://' . $host . '/Race_Elu_siteweb');
+$scriptPath = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
+if ($scriptPath === '/' || $scriptPath === '\\') {
+    $scriptPath = '';
+}
+// Si on est sur Railway (ou tout autre serveur où le dossier racine est servi), SCRIPT_NAME est /index.php donc scriptPath est vide
+// Si on est sur MAMP, c'est /Race_Elu_siteweb/index.php, donc scriptPath est /Race_Elu_siteweb
+define('BASE_URL', $protocol . '://' . $host . $scriptPath);
 
 // Titre du site
 define('SITE_NAME', 'Race Élu - Grossiste Alimentaire');
