@@ -117,31 +117,46 @@
         <!-- Navigation Menu -->
         <nav class="navbar navbar-expand-lg bg-yellow main-nav py-0">
             <div class="container">
-                <button class="navbar-toggler my-2" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <button class="navbar-toggler my-2 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNavOffcanvas" aria-controls="mainNavOffcanvas">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="mainNav">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown bg-dark-green">
-                            <a class="nav-link dropdown-toggle text-white px-4 py-3" href="#" role="button" data-bs-toggle="dropdown">
-                                <i class="fas fa-bars me-2"></i> Toutes les catégories
-                            </a>
-                            <ul class="dropdown-menu rounded-0 shadow border-0 mt-0">
-                                <li><a class="dropdown-item" href="#">Riz</a></li>
-                                <li><a class="dropdown-item" href="#">Huile</a></li>
-                                <li><a class="dropdown-item" href="#">Sucre</a></li>
-                                <li><a class="dropdown-item" href="#">Conserves</a></li>
-                                <li><a class="dropdown-item" href="#">Boissons</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark active" href="<?= BASE_URL ?>">Accueil</a></li>
-                        <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="<?= BASE_URL ?>/shop">Boutique</a></li>
-                        <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="<?= BASE_URL ?>/page/about">À propos</a></li>
-                        <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="<?= BASE_URL ?>/page/services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="#">Promotions</a></li>
-                        <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="<?= BASE_URL ?>/page/contact">Contact</a></li>
-                        <li class="nav-item ms-lg-2"><a class="btn btn-dark-green rounded-pill px-4 py-2 mt-2 mt-lg-1 fw-bold shadow-sm" href="<?= BASE_URL ?>/order/track"><i class="fas fa-truck me-2 text-yellow"></i> Suivre mon colis</a></li>
-                    </ul>
+                <div class="offcanvas offcanvas-start bg-yellow" tabindex="-1" id="mainNavOffcanvas" aria-labelledby="mainNavOffcanvasLabel">
+                    <div class="offcanvas-header bg-dark-green text-white">
+                        <h5 class="offcanvas-title fw-bold" id="mainNavOffcanvasLabel">Menu Race Élu</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <!-- Liens mobiles essentiels -->
+                            <li class="nav-item d-lg-none border-bottom border-dark-green pb-2 mb-2">
+                                <a class="nav-link px-3 fw-bold text-dark" href="<?= BASE_URL ?>/cart">
+                                    <i class="fas fa-shopping-basket me-2 text-dark-green"></i> Mon Panier
+                                </a>
+                                <a class="nav-link px-3 fw-bold text-dark" href="<?= isset($_SESSION['user_id']) ? BASE_URL . '/admin' : BASE_URL . '/auth/login' ?>">
+                                    <i class="far fa-user me-2 text-dark-green"></i> <?= isset($_SESSION['user_id']) ? 'Mon Compte' : 'Se connecter' ?>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown bg-dark-green">
+                                <a class="nav-link dropdown-toggle text-white px-4 py-3" href="#" role="button" data-bs-toggle="dropdown">
+                                    <i class="fas fa-bars me-2"></i> Toutes les catégories
+                                </a>
+                                <ul class="dropdown-menu rounded-0 shadow border-0 mt-0">
+                                    <li><a class="dropdown-item" href="#">Riz</a></li>
+                                    <li><a class="dropdown-item" href="#">Huile</a></li>
+                                    <li><a class="dropdown-item" href="#">Sucre</a></li>
+                                    <li><a class="dropdown-item" href="#">Conserves</a></li>
+                                    <li><a class="dropdown-item" href="#">Boissons</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark active" href="<?= BASE_URL ?>">Accueil</a></li>
+                            <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="<?= BASE_URL ?>/shop">Boutique</a></li>
+                            <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="<?= BASE_URL ?>/page/about">À propos</a></li>
+                            <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="<?= BASE_URL ?>/page/services">Services</a></li>
+                            <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="#">Promotions</a></li>
+                            <li class="nav-item"><a class="nav-link px-3 py-3 fw-medium text-dark" href="<?= BASE_URL ?>/page/contact">Contact</a></li>
+                            <li class="nav-item ms-lg-2"><a class="btn btn-dark-green rounded-pill px-4 py-2 mt-2 mt-lg-1 fw-bold shadow-sm" href="<?= BASE_URL ?>/order/track"><i class="fas fa-truck me-2 text-yellow"></i> Suivre mon colis</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>

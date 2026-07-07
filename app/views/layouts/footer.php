@@ -52,31 +52,6 @@
     <!-- Custom JS -->
     <script src="<?= BASE_URL ?>/public/assets/js/main.js"></script>
 
-    <!-- Mobile Bottom Nav -->
-    <div class="mobile-bottom-nav d-lg-none">
-        <a href="<?= BASE_URL ?>" class="nav-item">
-            <i class="fas fa-home"></i>
-            Accueil
-        </a>
-        <a href="<?= BASE_URL ?>/shop" class="nav-item">
-            <i class="fas fa-store"></i>
-            Boutique
-        </a>
-        <a href="<?= BASE_URL ?>/cart" class="nav-item position-relative">
-            <i class="fas fa-shopping-basket"></i>
-            Panier
-            <?php if(!empty($_SESSION['cart'])): ?>
-                <span class="position-absolute top-0 start-50 translate-middle-x badge rounded-pill bg-danger" style="margin-left: 10px; font-size: 8px;">
-                    <?= array_sum($_SESSION['cart']) ?>
-                </span>
-            <?php endif; ?>
-        </a>
-        <a href="<?= BASE_URL ?>/order/track" class="nav-item">
-            <i class="fas fa-truck"></i>
-            Suivi
-        </a>
-    </div>
-
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/<?= preg_replace('/[^0-9]/', '', get_setting('site_contact_phone')) ?>" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
