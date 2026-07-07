@@ -7,15 +7,21 @@ class Database {
     private $pass = DB_PASS;
     private $dbname = DB_NAME;
 
+    private static $shared_pdo = null;
     private $dbh;
     private $stmt;
     private $error;
 
     public function __construct() {
+        if (self::$shared_pdo !== null) {
+            $this->dbh = self::$shared_pdo;
+            return;
+        }
+
         $port = defined('DB_PORT') ? DB_PORT : '3306';
         $dsn = 'mysql:host=' . $this->host . ';port=' . $port . ';dbname=' . $this->dbname . ';charset=utf8mb4';
         $options = array(
-            PDO::ATTR_PERSISTENT => true,
+            PDO::ATTR_PERSISTENT => false,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
             PDO::MYSQL_ATTR_SSL_CA => dirname(__DIR__, 2) . '/config/cacert.pem',
@@ -24,6 +30,7 @@ class Database {
 
         try {
             $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
+            self::$shared_pdo = $this->dbh;
         } catch (PDOException $e) {
             $this->error = $e->getMessage();
             $msg = 'Erreur de connexion à la base de données : ' . $this->error;
