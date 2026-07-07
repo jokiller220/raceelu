@@ -34,11 +34,22 @@ class App {
     }
 
     public function getUrl() {
+        $url = '';
         if (isset($_GET['url'])) {
-            $url = rtrim($_GET['url'], '/');
+            $url = $_GET['url'];
+        } else {
+            $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+            $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
+            if ($scriptDir !== '/' && $scriptDir !== '\\' && strpos($requestUri, $scriptDir) === 0) {
+                $requestUri = substr($requestUri, strlen($scriptDir));
+            }
+            $url = ltrim($requestUri, '/');
+        }
+
+        if (!empty($url)) {
+            $url = rtrim($url, '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
-            $url = explode('/', $url);
-            return $url;
+            return explode('/', $url);
         }
         return [];
     }
