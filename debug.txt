@@ -1,0 +1,2 @@
+Attempting to delete category 8
+Successfully deleted category 8

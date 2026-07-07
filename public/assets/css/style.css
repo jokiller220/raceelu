@@ -1,0 +1,254 @@
+/* Variables CSS globales */
+:root {
+    --color-dark-green: #0B5D3B;
+    --color-yellow: #F4B400;
+    --color-light-gray: #F8F9FA;
+    --color-dark: #212529;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-light-gray);
+}
+
+/* Logo Styling */
+.logo-text-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1;
+}
+.brand-main {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+.brand-race {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: var(--color-dark-green);
+    letter-spacing: -0.5px;
+}
+.brand-elu {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: var(--color-yellow);
+}
+.brand-tagline {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #6c757d;
+    letter-spacing: 1.5px;
+    margin-top: -2px;
+}
+
+/* Couleurs personnalisées */
+.bg-dark-green { background-color: var(--color-dark-green) !important; }
+.bg-yellow { background-color: var(--color-yellow) !important; }
+.text-dark-green { color: var(--color-dark-green) !important; }
+.text-yellow { color: var(--color-yellow) !important; }
+.outfit-font { font-family: 'Outfit', sans-serif !important; }
+.bg-light-green { background-color: #e8f5e9 !important; }
+.bg-light-yellow { background-color: #fff9e6 !important; }
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    color: #FFF;
+}
+.whatsapp-badge {
+    position: absolute;
+    top: -5px;
+    left: -100px;
+    background: white;
+    color: #333;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.btn-yellow { 
+    background-color: var(--color-yellow); 
+    color: var(--color-dark);
+}
+.btn-yellow:hover {
+    background-color: #dfa400;
+    color: var(--color-dark);
+}
+
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    z-index: 1000;
+    border-top: 1px solid #eee;
+}
+.mobile-bottom-nav .nav-item {
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 10px;
+    font-weight: bold;
+}
+.mobile-bottom-nav .nav-item i {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 3px;
+}
+.mobile-bottom-nav .nav-item.active {
+    color: #2e7d32;
+}
+
+@media (min-width: 992px) {
+    .mobile-bottom-nav { display: none; }
+}
+
+@media (max-width: 991px) {
+    body { padding-bottom: 70px; } /* Space for bottom nav */
+    .whatsapp-float { bottom: 85px; } /* Move up to not overlap */
+}
+
+/* Header transition and shadow */
+.btn-dark-green {
+    background-color: var(--color-dark-green);
+    color: white;
+}
+.btn-dark-green:hover {
+    background-color: #09472d;
+    color: white;
+}
+
+/* Header */
+.main-nav .nav-link {
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+.main-nav .nav-link:hover, .main-nav .nav-link.active {
+    color: var(--color-dark-green) !important;
+}
+.search-bar .form-control {
+    border: 1px solid #ced4da;
+    box-shadow: none;
+}
+.search-bar .form-control:focus {
+    border-color: var(--color-dark-green);
+}
+
+/* Cards & Hover Effects */
+.transition-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.transition-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.category-card {
+    border: 1px solid transparent;
+}
+.category-card:hover {
+    border-color: var(--color-yellow);
+}
+
+.product-card {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.product-card .card-img-top {
+    height: 200px;
+    object-fit: contain;
+    padding: 1rem;
+    background-color: #fff;
+}
+.product-card .card-body {
+    background-color: #fff;
+}
+
+/* Badges */
+.badge-stock-in {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #0B5D3B, #063923);
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    border-bottom: 5px solid var(--color-yellow);
+    animation: fadeIn 1s ease-out forwards;
+}
+.hero-image {
+    max-width: 520px;
+    width: 100%;
+    object-fit: contain;
+    animation: float 4s ease-in-out infinite;
+    filter: drop-shadow(0 15px 20px rgba(0,0,0,0.2));
+}
+
+/* Animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Forms */
+.form-control:focus, .form-select:focus {
+    border-color: var(--color-dark-green);
+    box-shadow: 0 0 0 0.25rem rgba(11, 93, 59, 0.25);
+}
+
+/* Admin Sidebar */
+.admin-sidebar {
+    min-height: 100vh;
+    background-color: var(--color-dark-green);
+}
+.admin-sidebar .nav-link {
+    color: rgba(255,255,255,0.8);
+    padding: 0.8rem 1.5rem;
+    border-left: 3px solid transparent;
+}
+.admin-sidebar .nav-link:hover, .admin-sidebar .nav-link.active {
+    color: #fff;
+    background-color: rgba(255,255,255,0.1);
+    border-left-color: var(--color-yellow);
+}
