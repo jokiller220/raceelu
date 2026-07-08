@@ -18,7 +18,18 @@ class PageController extends Controller {
     public function about() {
         $data = [
             'title' => 'À propos - Race Élu',
-            'content' => $this->getSetting('site_about')
+            'content' => $this->getSetting('site_about'),
+            'hero_title' => $this->getSetting('about_hero_title'),
+            'history_title' => $this->getSetting('about_history_title'),
+            'history_heading' => $this->getSetting('about_history_heading'),
+            'values_title' => $this->getSetting('about_values_title'),
+            'values_heading' => $this->getSetting('about_values_heading'),
+            'value1_title' => $this->getSetting('about_value1_title'),
+            'value1_desc' => $this->getSetting('about_value1_desc'),
+            'value2_title' => $this->getSetting('about_value2_title'),
+            'value2_desc' => $this->getSetting('about_value2_desc'),
+            'value3_title' => $this->getSetting('about_value3_title'),
+            'value3_desc' => $this->getSetting('about_value3_desc')
         ];
         $this->view('pages/about', $data);
     }
