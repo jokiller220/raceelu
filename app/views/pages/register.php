@@ -19,15 +19,15 @@
                             <?= csrf_field() ?>
                             <div class="mb-3">
                                 <label class="form-label fw-medium">Nom complet</label>
-                                <input type="text" name="nom" class="form-control py-2" required placeholder="Ex: Jean Dupont">
+                                <input type="text" name="nom" class="form-control py-2" required placeholder="Ex: Koffi Mensah">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label fw-medium">Email</label>
-                                <input type="email" name="email" class="form-control py-2" required placeholder="Ex: jean@email.com">
+                                <input type="email" name="email" class="form-control py-2" required placeholder="Ex: koffi@gmail.com">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label fw-medium">Téléphone</label>
-                                <input type="text" name="telephone" class="form-control py-2" placeholder="Ex: +225 0102030405">
+                                <input type="text" name="telephone" class="form-control py-2" placeholder="Ex: +228 90 00 00 00">
                             </div>
                             <div class="row mb-4">
                                 <div class="col-md-6">

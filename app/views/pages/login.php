@@ -19,14 +19,14 @@
                             <?= csrf_field() ?>
                             <div class="mb-3">
                                 <label class="form-label fw-medium">Email</label>
-                                <input type="email" name="email" class="form-control py-2" required placeholder="Ex: admin@race-elu.com">
+                                <input type="email" name="email" class="form-control py-2" required placeholder="Ex: kossi@gmail.com">
                             </div>
                             <div class="mb-4">
                                 <div class="d-flex justify-content-between">
                                     <label class="form-label fw-medium">Mot de passe</label>
                                     <a href="#" class="text-decoration-none text-dark-green small">Oublié ?</a>
                                 </div>
-                                <input type="password" name="password" class="form-control py-2" required placeholder="Ex: admin123">
+                                <input type="password" name="password" class="form-control py-2" required placeholder="Ex: Mot de passe">
                             </div>
                             <div class="form-check mb-4">
                                 <input type="checkbox" class="form-check-input" id="remember">
