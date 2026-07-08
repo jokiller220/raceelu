@@ -6,7 +6,9 @@ header("X-Content-Type-Options: nosniff");
 header("X-XSS-Protection: 1; mode=block");
 header("Referrer-Policy: strict-origin-when-cross-origin");
 
-// Paramètres de session sécurisés
+// Paramètres de session sécurisés et durée de vie longue (30 jours)
+ini_set('session.gc_maxlifetime', 2592000);
+ini_set('session.cookie_lifetime', 2592000);
 ini_set('session.cookie_httponly', 1);
 ini_set('session.use_only_cookies', 1);
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
