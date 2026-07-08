@@ -20,8 +20,13 @@
                 <p class="text-muted lead mb-4">Merci pour votre confiance. Votre commande est déjà en cours de préparation par notre équipe.</p>
                 
                 <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center mb-5">
+                    <?php if(isset($data['whatsapp_url'])): ?>
+                        <a href="<?= $data['whatsapp_url'] ?>" target="_blank" class="btn rounded-pill px-4 py-2 fw-bold shadow-sm" style="background-color: #25D366; color: white; border-color: #25D366;">
+                            <i class="fab fa-whatsapp me-2" style="font-size: 1.2rem;"></i> Confirmer sur WhatsApp
+                        </a>
+                    <?php endif; ?>
                     <a href="<?= BASE_URL ?>/order/track?id=<?= $data['order_id'] ?>&tel=<?= urlencode($data['telephone']) ?>" class="btn btn-yellow rounded-pill px-4 py-2 fw-bold shadow-sm">
-                        <i class="fas fa-search me-2"></i> Suivre ma commande en un clic
+                        <i class="fas fa-search me-2"></i> Suivre ma commande
                     </a>
                     <a href="<?= BASE_URL ?>" class="btn btn-outline-dark-green rounded-pill px-4 py-2 fw-bold">
                         Retour à l'accueil

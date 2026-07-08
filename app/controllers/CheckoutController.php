@@ -63,7 +63,7 @@ class CheckoutController extends Controller {
                 if ($product) {
                     $itemPrice = !empty($product->prix_promo) ? $product->prix_promo : $product->prix;
                     $total += $itemPrice * $quantity;
-                    $items[] = ['id' => $id, 'prix' => $itemPrice, 'qty' => $quantity];
+                    $items[] = ['id' => $id, 'nom' => $product->nom, 'prix' => $itemPrice, 'qty' => $quantity];
                 }
             }
             $total += 2000; // Frais livraison
@@ -156,12 +156,25 @@ class CheckoutController extends Controller {
             // Vider le panier
             unset($_SESSION['cart']);
 
+            // Construire message WhatsApp
+            $whatsapp_text = "Bonjour Race Élu ! Je viens de passer une commande sur le site.\n\n";
+            $whatsapp_text .= "*Commande #* : " . $orderId . "\n";
+            $whatsapp_text .= "*Nom* : " . $nom . "\n";
+            $whatsapp_text .= "*Ville* : " . $ville . "\n";
+            $whatsapp_text .= "*Total* : " . number_format($total, 0, ',', ' ') . " FCFA\n\n";
+            $whatsapp_text .= "*Articles* :\n";
+            foreach ($items as $item) {
+                $whatsapp_text .= "- " . $item['qty'] . "x " . $item['nom'] . "\n";
+            }
+            $whatsapp_url = "https://wa.me/" . preg_replace('/[^0-9]/', '', get_setting('site_contact_phone')) . "?text=" . urlencode($whatsapp_text);
+
             // Rediriger vers succès
             $this->view('pages/success', [
                 'title' => 'Commande réussie', 
                 'order_id' => $orderId,
                 'telephone' => $telephone,
-                'points_gagnes' => $points_gagnes
+                'points_gagnes' => $points_gagnes,
+                'whatsapp_url' => $whatsapp_url
             ]);
         } else {
             header('Location: ' . BASE_URL . '/shop');
