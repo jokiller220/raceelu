@@ -30,6 +30,11 @@ function csrf_field() {
  */
 function verify_csrf() {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Détecter si $_POST est vide à cause d'un dépassement de post_max_size (ex: image trop lourde)
+        if (empty($_POST) && isset($_SERVER['CONTENT_LENGTH']) && $_SERVER['CONTENT_LENGTH'] > 0) {
+            die('Erreur : Le fichier envoyé (image) est trop volumineux. Veuillez réduire sa taille (max environ 2Mo) et réessayer.');
+        }
+
         if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
             // Si c'est une requête AJAX, renvoyer du JSON
             if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
@@ -37,7 +42,7 @@ function verify_csrf() {
                 echo json_encode(['status' => 'error', 'message' => 'Session expirée, veuillez rafraîchir la page.']);
                 exit;
             }
-            die('Erreur de sécurité : Jeton CSRF invalide.');
+            die('Erreur de sécurité : Jeton CSRF invalide ou session expirée.');
         }
     }
 }
