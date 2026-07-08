@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<div class="admin-sidebar offcanvas-lg offcanvas-start text-white flex-shrink-0" tabindex="-1" id="adminSidebarMobile" aria-labelledby="adminSidebarMobileLabel" style="width: 250px;">
+<div class="admin-sidebar offcanvas-lg offcanvas-start text-white flex-shrink-0 bg-dark-green" tabindex="-1" id="adminSidebarMobile" aria-labelledby="adminSidebarMobileLabel" style="width: 250px;">
     <div class="offcanvas-header d-lg-none border-bottom border-secondary bg-dark-green">
         <h5 class="offcanvas-title text-white fw-bold" id="adminSidebarMobileLabel">Menu Admin</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" data-bs-target="#adminSidebarMobile" aria-label="Fermer"></button>
