@@ -35,6 +35,7 @@
                     <?php else: ?>
                         <span class="fs-3 fw-bold text-dark"><?= number_format($data['product']->prix, 0, ',', ' ') ?> FCFA</span>
                     <?php endif; ?>
+                    <div class="text-success mt-1 fw-bold"><i class="fas fa-tag"></i> Prix de gros (<?= htmlspecialchars($data['product']->unite) ?>)</div>
                 </div>
                 
                 <p class="text-muted mb-4"><?= nl2br(htmlspecialchars($data['product']->description)) ?></p>

@@ -103,6 +103,7 @@
                                             <?php else: ?>
                                                 <span class="fs-5 fw-bold text-dark"><?= number_format($product->prix, 0, ',', ' ') ?> FCFA</span>
                                             <?php endif; ?>
+                                            <div class="text-success small fw-bold" style="font-size: 0.7rem;"><i class="fas fa-tag"></i> Prix de gros</div>
                                         </div>
                                         <button class="btn btn-dark-green w-100 btn-sm fw-medium add-to-cart-btn" data-id="<?= $product->id ?>">
                                             <i class="fas fa-shopping-basket me-2"></i> Ajouter au panier
