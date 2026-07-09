@@ -114,7 +114,7 @@
         </div>
 
         <!-- Navigation Menu -->
-        <nav class="navbar navbar-expand-lg bg-yellow main-nav py-0">
+        <nav class="navbar navbar-expand-xl bg-yellow main-nav py-0">
             <div class="container">
                 <button class="navbar-toggler my-2 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNavOffcanvas" aria-controls="mainNavOffcanvas">
                     <span class="navbar-toggler-icon"></span>
@@ -127,7 +127,7 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <!-- Liens mobiles essentiels -->
-                            <li class="nav-item d-lg-none border-bottom border-dark-green pb-2 mb-2">
+                            <li class="nav-item d-xl-none border-bottom border-dark-green pb-2 mb-2">
                                 <a class="nav-link px-3 fw-bold text-dark" href="<?= BASE_URL ?>/cart">
                                     <i class="fas fa-shopping-basket me-2 text-dark-green"></i> Mon Panier
                                 </a>

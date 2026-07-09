@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row">
             <!-- Sidebar / Categories -->
-            <div class="col-lg-3 mb-4">
+            <div class="col-lg-4 col-xl-3 mb-4">
                 <div class="card shadow-sm border-0">
                     <div class="card-header bg-white fw-bold py-3">
                         Catégories
@@ -42,7 +42,7 @@
             </div>
 
             <!-- Product Grid -->
-            <div class="col-lg-9">
+            <div class="col-lg-8 col-xl-9">
                 <!-- Search & Filter Bar -->
                 <div class="card border-0 shadow-sm rounded-4 mb-4 bg-white">
                     <div class="card-body p-3">
@@ -73,7 +73,7 @@
                     <span class="text-muted small"><?= count($data['products']) ?> produits trouvés</span>
                 </div>
 
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 g-4">
                     <?php if(empty($data['products'])): ?>
                         <div class="col-12 text-center py-5">
                             <p class="text-muted fs-5">Aucun produit trouvé dans cette catégorie.</p>
