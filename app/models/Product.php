@@ -9,7 +9,7 @@ class Product {
     }
 
     public function getProducts($limit = null) {
-        $sql = 'SELECT p.*, c.nom as categorie_nom FROM products p LEFT JOIN categories c ON p.category_id = c.id WHERE p.status = "actif" ORDER BY p.created_at DESC';
+        $sql = 'SELECT p.*, c.nom as categorie_nom FROM products p LEFT JOIN categories c ON p.category_id = c.id WHERE p.status = "actif" AND p.image IS NOT NULL AND p.image != "" ORDER BY p.created_at DESC';
         if ($limit) {
             $sql .= ' LIMIT ' . (int)$limit;
         }
@@ -18,7 +18,7 @@ class Product {
     }
     
     public function getProductsByCategory($category_id) {
-        $this->db->query('SELECT p.*, c.nom as categorie_nom FROM products p LEFT JOIN categories c ON p.category_id = c.id WHERE p.category_id = :category_id AND p.status = "actif"');
+        $this->db->query('SELECT p.*, c.nom as categorie_nom FROM products p LEFT JOIN categories c ON p.category_id = c.id WHERE p.category_id = :category_id AND p.status = "actif" AND p.image IS NOT NULL AND p.image != ""');
         $this->db->bind(':category_id', $category_id);
         return $this->db->resultSet();
     }
@@ -30,7 +30,7 @@ class Product {
     }
 
     public function getProductsFiltered($search = '', $sort = 'newest', $category_id = null) {
-        $sql = 'SELECT p.*, c.nom as categorie_nom FROM products p LEFT JOIN categories c ON p.category_id = c.id WHERE p.status = "actif"';
+        $sql = 'SELECT p.*, c.nom as categorie_nom FROM products p LEFT JOIN categories c ON p.category_id = c.id WHERE p.status = "actif" AND p.image IS NOT NULL AND p.image != ""';
         
         if (!empty($search)) {
             $sql .= ' AND (p.nom LIKE :search OR p.description LIKE :search)';
